@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: mysql
+---
+spring:
+  profiles: local
+  datasource:
+    hikari:
+      jdbc-url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+---
+spring:
+  profiles: mysql
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://batch-test.verda-lcx.jp2-dev.db.line-apps-dev.com:20306/batch
+      username: batch
+      password: z9s7bpSiw2VGo8Bh
+      driver-class-name: com.mysql.cj.jdbc.Driver
