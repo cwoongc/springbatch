@@ -1,6 +1,7 @@
 spring:
   profiles:
-    active: mysql
+    active: version
+  batch.job.names: ${job.name:NONE} # spring.batch.job.names = NONE # job.name이 있으면 해당값을 없으면 NONE. NONE -> 아무것도 실행안함.
 ---
 spring:
   profiles: local
@@ -15,7 +16,20 @@ spring:
   profiles: mysql
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://batch-test.verda-lcx.jp2-dev.db.line-apps-dev.com:20306/batch
-      username: batch
-      password: z9s7bpSiw2VGo8Bh
+      jdbc-url: jdbc:mysql://10.127.42.246:20306/stopwaker
+      username: stopwaker
+      password: stopwaker
+      driver-class-name: com.mysql.cj.jdbc.Driver
+#      jdbc-url: jdbc:mysql://batch-test.verda-lcx.jp2-dev.db.line-apps-dev.com:20306/batch
+#      username: batch
+#      password: z9s7bpSiw2VGo8Bh
+#      driver-class-name: com.mysql.cj.jdbc.Driver
+---
+spring:
+  profiles: version
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://10.127.42.246:20306/stopwaker
+      username: stopwaker
+      password: stopwaker
       driver-class-name: com.mysql.cj.jdbc.Driver
