@@ -21,22 +21,21 @@ public class StepNextJobConfiguration {
 
     @Bean
     public Job stepNextJob() {
-
         return jobBuilderFactory.get("stepNextJob")
-                                .start(step1())
-                                .next(step2())
-                                .next(step3())
-                                .build();
+                .start(step1())
+                .next(step2())
+                .next(step3())
+                .build();
     }
 
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                                 .tasklet((contribution, chunkContext) -> {
-                                     log.info(">>>>>This is step1");
-                                     return RepeatStatus.FINISHED;
-                                 })
-                                 .build();
+                .tasklet((contribution, chunkContext) -> {
+                    log.info(">>>>>This is step1");
+                    return RepeatStatus.FINISHED;
+                })
+                .build();
     }
 
     @Bean
