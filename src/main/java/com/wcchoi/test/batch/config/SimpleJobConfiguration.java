@@ -21,7 +21,7 @@ public class SimpleJobConfiguration {
     private final JobBuilderFactory jobBuilderFactory;
     private final StepBuilderFactory stepBuilderFactory;
 
-    @Bean
+    @Bean("simpleJob")
     public Job simpleJob() {
         return jobBuilderFactory.get("simpleJob")
                                 .start(simpleStep1(null))
